@@ -80,3 +80,33 @@ To make your app work properly with React Router (if you end up using it) on Her
 ## Contact
 
 Please contact me at `nima@lighthouselabs.com` if you have any questions or requests, or post an issue to this repo.
+
+
+# react-express-reframe
+Reframe Application Development built on React, Express, Node, and PostgreSQL.
+
+### Project Description
+Project Title - Reframe
+Project Description - A an app for proffesional development that walks users through course material that ReFrame delivers currently to clients.
+
+### Target Audience(s) 
+* Anyone looking for proffesional Development.
+* Online Learning for Current Clients of ReFrame
+
+### Tech Stack
+Ruby on Rails
+React
+PostgreSQL
+Javascript
+
+Hosted on heroku (to be decided)
+Will adapt as our needs progress.
+
+
+### User Stories(Base Functions for our MVP)
+As a user I want to
+
+* Login.
+* Pay for the course.
+* Go through the learning module.
+* Contact for live counselling? (is this a feature we want for our release?)
