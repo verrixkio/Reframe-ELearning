@@ -103,10 +103,11 @@ Hosted on heroku (to be decided)
 Will adapt as our needs progress.
 
 
-### User Stories(Base Functions for our MVP)
+### User Stories(Base Functions for our minimum launch product.)
 As a user I want to
 
 * Login.
 * Pay for the course.
 * Go through the learning module.
+* Workthrough the course
 * Contact for live counselling? (is this a feature we want for our release?)
