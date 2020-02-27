@@ -5,7 +5,7 @@ class LoginForm extends React.Component {
 
 constructor(props){
     super(props);
-    this.state = { username: '', password: '' };
+    this.state = { username: '', password: '', message: 'Click the button to load data!'};
     }
     
     handleChange = ({ target }) => {
@@ -14,27 +14,25 @@ constructor(props){
 	
 	onSubmit = event => {
 		event.preventDefault();
-		fetchData = () => {
-			axios.get('/api/data') // You can simply make your requests to "/api/whatever you want"
-			.then((response) => {
-			  // handle success
-			  console.log(response.data[0].name) // The entire response from the Rails API
-		
-			  console.log(response.data[0].name) // Just the message
-			  this.setState({
-				message: response.data[0].name
-			  });
-			}) 
-		  }
+		axios.get('/api/data') // You can simply make your requests to "/api/whatever you want"
+		.then((response) => {
+		  // handle success
+		  console.log(response.data[0].name) // The entire response from the Rails API
+	
+		  console.log(response.data[0].name) // Just the message
+		  this.setState({
+			message: response.data[0].name
+		  });
+		}) 
 
-	   };
+	};
 
   render() {
     return (
         <div className="limiter">
 		<div className="container-login100">
 			<div className="wrap-login100">
-				<form className="login100-form validate-form" method="/" action="POST">
+				<form className="login100-form validate-form">
 					<span className="login100-form-title p-b-26">
 						Welcome
 					</span>
@@ -70,7 +68,7 @@ constructor(props){
 					<div className="container-login100-form-btn">
 						<div className="wrap-login100-form-btn">
 							<div className="login100-form-bgbtn"></div>
-							<button className="login100-form-btn">
+							<button className="login100-form-btn" onClick={this.onSubmit}>
 								Login
 							</button>
 						</div>
@@ -88,6 +86,8 @@ constructor(props){
 				</form>
                 <h3>Your username is: {this.state.username}</h3>
                 <h3>Your password is: {this.state.password}</h3>
+
+				<h3>Login info passed is: {this.state.message} </h3>
 			</div>
 		</div>
 	</div>
