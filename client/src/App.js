@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import LoginForm from './components/LoginForm';
 import './css/application.css';
-// import './css/application.css';
 
-class App extends Component {
+import { BrowserRouter as Router, Route} from "react-router-dom";
+
+
+class Index extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -24,16 +27,34 @@ class App extends Component {
     }) 
   }
 
+
   render() {
     return (
       <div className="App">
         <h1>{ this.state.message }</h1>
         <button onClick={this.fetchData} >
           Fetch Data
-        </button>        
+        </button>    
       </div>
     );
   }
 }
 
-export default App;
+function Login () {
+  return (
+    <LoginForm/>
+  )
+}
+
+function AppRouter() {
+  return (
+    <Router>
+      <div>
+        <Route path="/" exact component={Index} />
+        <Route path="/login" component={Login} />
+      </div>
+    </Router>
+  );
+}
+
+export default AppRouter;
