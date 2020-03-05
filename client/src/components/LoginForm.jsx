@@ -14,16 +14,16 @@ constructor(props){
 	
 	onSubmit = event => {
 		event.preventDefault();
-		axios.get('/api/data') // You can simply make your requests to "/api/whatever you want"
-		.then((response) => {
-		  // handle success
-		  console.log(response.data[0].name) // The entire response from the Rails API
-	
-		  console.log(response.data[0].name) // Just the message
-		  this.setState({
-			message: response.data[0].name
+		axios.post('/api/data', {
+			name: this.state.username,
+			password: this.state.password
+		  })
+		  .then(function (response) {
+			console.log(response);
+		  })
+		  .catch(function (error) {
+			console.log(error);
 		  });
-		}) 
 
 	};
 
