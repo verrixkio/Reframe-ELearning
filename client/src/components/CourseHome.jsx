@@ -27,7 +27,7 @@ class CourseHome extends React.Component {
               </div>
               <div className="col-6">
                 <div className="image-container">
-                  <img src={require("../media/courseHome/pawns.jpg")}/>
+                  <img src={require("../media/courseHome/pawns.jpg")} alt="hero"/>
                 </div>
               </div>
             </div>

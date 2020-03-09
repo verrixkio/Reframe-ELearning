@@ -19,20 +19,7 @@ class ModuleTemplate extends React.Component {
           <div className="main-content">
             <div className="row">
               <div className="side-nav col-3 no-gutters">
-            {/* Logic for SideNav Mapping out the WorkMaterial(WorkMats).
-              
-                When directed to a specific module. We are able to access the module ID.
-
-                For each introduction, reading, and activity with a moduleID of 1 for example. Render out the name of each object.
-
-                Connect an event listener to each object title that calls WorksMats with two Params - 
-                    
-                      type of work material (Activity, Reading, or Introduction)
-                      Module_Id
-                
-                
-              */}
-              <SideNav/>
+                <SideNav/>
               </div>
               <div className="workbar col-9 no-gutters">
             {/* 

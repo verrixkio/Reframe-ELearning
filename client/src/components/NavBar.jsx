@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../media/logos/transparent-logo.png';
 
 class NavBar extends React.Component {
 
