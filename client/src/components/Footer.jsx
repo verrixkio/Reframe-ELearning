@@ -11,9 +11,9 @@ class Footer extends React.Component {
   render () {
     return (
       <footer>
-        <div class="footer-content">
+        <div className="footer-content">
           <span>Copyright © 2020 Reframe Leadership Inc</span>
-          <div class="center">
+          <div className="center">
             <img src={require("../media/logos/transparent-logo-white.png")}alt="website logo"/>
           </div>
         </div>

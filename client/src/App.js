@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import ModuleIntro from './components/ModuleIntro';
 import CourseHome from './components/CourseHome';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
@@ -52,6 +53,12 @@ function Register () {
   )
 }
 
+function Module () {
+  return (
+    <ModuleIntro/>
+  )
+}
+
 
 function AppRouter() {
   return (
@@ -60,6 +67,7 @@ function AppRouter() {
         <Route path="/" exact component={Index} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
+        <Route path="/course" component={Module} />
       </div>
     </Router>
   );

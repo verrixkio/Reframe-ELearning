@@ -13353,4 +13353,15 @@ html {
   border: solid 1px black;
 }
 
+.side-nav {
+  border: solid 1px black;
+  height: 300px;
+  background-color: #f5f5f5;
+}
+
+.workbar {
+  border: solid 1px black;
+  height: 300px;
+}
+
 /*# sourceMappingURL=application.css.map */

@@ -10,10 +10,10 @@ class NavBar extends React.Component {
 
   render () {
     return (
-      <div class="overall-navbar">
-        <nav class="mobile" role="navigation">
-          <div class="nav-container">
-            <div class="logo">
+      <div className="overall-navbar">
+        <nav className="mobile" role="navigation">
+          <div className="nav-container">
+            <div className="logo">
               <img src={require("../media/logos/transparent-logo.png")} alt="website logo"></img>
             </div>
             <div id="menuToggle">
@@ -46,11 +46,11 @@ class NavBar extends React.Component {
             </div>
           </div>
         </nav>
-        <header class="desktop">
-          <div class="logo">
+        <header className="desktop">
+          <div className="logo">
             <img src={require("../media/logos/transparent-logo.png")} alt="website logo"/>
           </div>
-          <div class="options desktop">
+          <div className="options desktop">
           <ul>
           <li>
               <a href="#home-toggle">Plan</a></li>
