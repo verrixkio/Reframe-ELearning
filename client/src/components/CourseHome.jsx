@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from './NavBar';
+import Footer from './Footer';
 
 
 class CourseHome extends React.Component {
@@ -86,12 +87,27 @@ class CourseHome extends React.Component {
             </div>
             {/* Side Bar for Course Description */}
             <div className="col-6">
-              <div className="image-container">
-                <img src={require("../media/courseHome/pawns.jpg")}/>
+              <div className="course-container">
+                <h3>Title of Course</h3>
+                <p>Estimated time for completion.</p>
+                {/* Progress bar component. */}
+                <h4>Course Description</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat</p>
+                <h5>Value Prop</h5>
+                <h5>Value Prop</h5>
+                <h5>Value Prop</h5>
+
               </div>
             </div>
           </div>
-        {/* Closing Main Content Div */}
+
+          {/* Pathway of Course Work */}
+          <div className="pathway">
+          
+
+          </div>
+        {/* Closing Main Content Div (everything but nav)*/}
+        <Footer/>
         </div>
       {/* Closing Overall Render Div */}
       </div>
