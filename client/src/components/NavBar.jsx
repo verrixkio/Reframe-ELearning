@@ -38,12 +38,10 @@ class NavBar extends React.Component {
             but hey, it's pure CSS magic.
             --> */}
             <ul id="menu">
-              <li><a href="#home-toggle">Home</a></li>
-              <li><a href="#what-we-do-toggle2">What We Do</a></li>
-              <li><a href="#about-toggle">About Us</a></li>
-              <li><a href="#testimonials-toggle">Testimonials</a></li>
-              {/* <!-- <li><a href="#client-site-toggle">Active Client Site</a></li> --> */}
-              <li><a href="#contact-toggle">Contact Us</a></li>
+              <li><a href="#home-toggle">Plan</a></li>
+              <li><a href="#what-we-do-toggle2">Team</a></li>
+              <li><a href="#about-toggle">Log Out</a></li>
+              <li><a href="#contact-toggle">Profile</a></li>
             </ul>
             </div>
           </div>
@@ -54,12 +52,11 @@ class NavBar extends React.Component {
           </div>
           <div class="options desktop">
           <ul>
-            <li><a href="#home-toggle">Home</a></li>
-            <li><a href="#what-we-do-toggle2">What We Do</a></li>
-            <li><a href="#about-toggle">About Us</a></li>
-            <li><a href="#testimonials-toggle">Testimonials</a></li>
-            {/* <li><a href="#client-site-toggle">Active Client Site</a></li> */}
-            <li><a href="#contact-toggle">Contact Us</a></li>
+          <li>
+              <a href="#home-toggle">Plan</a></li>
+              <li><a href="#what-we-do-toggle2">Team</a></li>
+              <li><a href="#about-toggle">Log Out</a></li>
+              <li><a href="#contact-toggle">Profile</a></li>
           </ul>
           </div>
         </header>

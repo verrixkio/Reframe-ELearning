@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Home from './components/Home';
+import CourseHome from './components/CourseHome';
 import LoginForm from './components/LoginForm';
 
 import './css/application.css';
@@ -33,7 +33,7 @@ class Index extends Component {
   render() {
     return (
       <div className="App">
-        <Home/>
+        <CourseHome/>
       </div>
     );
   }
