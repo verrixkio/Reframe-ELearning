@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import ModuleIntro from './components/ModuleIntro';
+import ModuleTemplate from './components/ModuleTemplate';
 import CourseHome from './components/CourseHome';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
@@ -55,7 +55,7 @@ function Register () {
 
 function Module () {
   return (
-    <ModuleIntro/>
+    <ModuleTemplate/>
   )
 }
 

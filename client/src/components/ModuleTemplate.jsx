@@ -1,8 +1,10 @@
 import React from 'react';
 import NavBar from './NavBar';
 import Footer from './Footer';
+import SideNav from './SideNav'
+import WorkMats from './WorkMats'
 
-class ModuleIntro extends React.Component {
+class ModuleTemplate extends React.Component {
 
   constructor(props){
       super(props);
@@ -30,6 +32,7 @@ class ModuleIntro extends React.Component {
                 
                 
               */}
+              <SideNav/>
               </div>
               <div className="workbar col-9 no-gutters">
             {/* 
@@ -45,6 +48,7 @@ class ModuleIntro extends React.Component {
                     M_Reading.jsx
                   
               */}
+              <WorkMats/>
               </div>
           </div>
           {/* Closing Main Content Div (everything but nav)*/}
@@ -56,4 +60,4 @@ class ModuleIntro extends React.Component {
   }
 }
 
-export default ModuleIntro;
+export default ModuleTemplate;
