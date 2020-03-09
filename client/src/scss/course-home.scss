@@ -2,3 +2,15 @@
   // Setting the main-content of coursehome to blow the navbar.
   padding-top: 85px;
 }
+
+.image-container {
+  img {
+    width: 100%;
+  }
+}
+
+.border {
+  border: solid 1px black;
+  min-width: 100px;
+  min-height: 100px;
+}
