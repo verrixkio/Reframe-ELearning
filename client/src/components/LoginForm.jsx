@@ -5,7 +5,7 @@ class LoginForm extends React.Component {
 
 constructor(props){
     super(props);
-    this.state = { username: '', password: '', message: 'Click the button to load data!'};
+    this.state = { email: '', password: '', message: 'Click the button to load data!'};
     }
     
     handleChange = ({ target }) => {
@@ -14,12 +14,13 @@ constructor(props){
 	
 	onSubmit = event => {
 		event.preventDefault();
-		axios.post('/api/data', {
-			name: this.state.username,
+		axios.post('/api/login', {
+			email: this.state.email,
 			password: this.state.password
 		  })
 		  .then(function (response) {
 			console.log(response);
+			window.location = "/"
 		  })
 		  .catch(function (error) {
 			console.log(error);
@@ -44,8 +45,8 @@ constructor(props){
                         <input 
                             className="input100" 
                             type="text"
-                            name="username"
-                            value={this.state.username}
+                            name="email"
+                            value={this.state.email}
                             onChange={this.handleChange}/>
 
 						<span className="focus-input100" data-placeholder="Email"></span>
@@ -84,7 +85,7 @@ constructor(props){
 						</a>
 					</div>
 				</form>
-                <h3>Your username is: {this.state.username}</h3>
+                <h3>Your username is: {this.state.email}</h3>
                 <h3>Your password is: {this.state.password}</h3>
 
 				<h3>Login info passed is: {this.state.message} </h3>

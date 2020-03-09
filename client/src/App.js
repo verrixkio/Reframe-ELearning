@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Home from './components/Home';
 import LoginForm from './components/LoginForm';
+
 import './css/application.css';
 
 import { BrowserRouter as Router, Route} from "react-router-dom";
@@ -31,10 +33,7 @@ class Index extends Component {
   render() {
     return (
       <div className="App">
-        <h1>{ this.state.message }</h1>
-        <button onClick={this.fetchData} >
-          Fetch Data
-        </button>    
+        <Home/>
       </div>
     );
   }
