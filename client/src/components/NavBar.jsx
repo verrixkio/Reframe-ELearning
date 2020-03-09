@@ -14,7 +14,7 @@ class NavBar extends React.Component {
         <nav class="mobile" role="navigation">
           <div class="nav-container">
             <div class="logo">
-              <img src={require('../media/logos/transparent-logo.png')} alt="website logo"/>
+              <img src={require("../media/logos/transparent-logo.png")} alt="website logo"></img>
             </div>
             <div id="menuToggle">
             {/* <!--
@@ -50,7 +50,7 @@ class NavBar extends React.Component {
         </nav>
         <header class="desktop">
           <div class="logo">
-            <img src="../media/logos/transarent-logo.png" alt="website logo"/>
+            <img src={require("../media/logos/transparent-logo.png")} alt="website logo"/>
           </div>
           <div class="options desktop">
           <ul>
