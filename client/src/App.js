@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import CourseHome from './components/CourseHome';
 import LoginForm from './components/LoginForm';
+import RegisterForm from './components/RegisterForm';
 
 import './css/application.css';
 
@@ -45,6 +46,12 @@ function Login () {
   )
 }
 
+function Register () {
+  return (
+    <RegisterForm/>
+  )
+}
+
 
 function AppRouter() {
   return (
@@ -52,6 +59,7 @@ function AppRouter() {
       <div>
         <Route path="/" exact component={Index} />
         <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
       </div>
     </Router>
   );

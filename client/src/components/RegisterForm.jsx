@@ -14,7 +14,7 @@ constructor(props){
 	
 	onSubmit = event => {
 		event.preventDefault();
-		axios.post('/api/login', {
+		axios.post('/api/register', {
 			email: this.state.email,
 			password: this.state.password
 		  })
@@ -70,18 +70,18 @@ constructor(props){
 						<div className="wrap-login100-form-btn">
 							<div className="login100-form-bgbtn"></div>
 							<button className="login100-form-btn" onClick={this.onSubmit}>
-								Login
+								Register
 							</button>
 						</div>
 					</div>
 
 					<div className="text-center p-t-115">
 						<span className="txt1">
-							Don’t have an account?
+							Already have an account?
 						</span>
 
-						<a className="txt2" href="/register">
-							Sign Up
+						<a className="txt2" href="/login">
+							Login
 						</a>
 					</div>
 				</form>
