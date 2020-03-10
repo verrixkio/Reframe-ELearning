@@ -7,3 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!(name: 'testuser1', email: '123@me.com', password: '123' )
+
+Course.create!(
+  name: 'Sgi-WorkBook', 
+  completion_time: "85 minutes", 
+  description: "This is the example data for the description of the course, this will show on the main course page.",
+  value_props: ["amazing", "fantastic", "unbeatable"],
+  price: "300 USD"
+  )
