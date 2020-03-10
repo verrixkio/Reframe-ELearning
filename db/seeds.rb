@@ -15,3 +15,8 @@ Course.create!(
   value_props: ["amazing", "fantastic", "unbeatable"],
   price: "300 USD"
   )
+
+Segment.create!(
+  name: "Module:8 Commitments",
+  course_id: 1
+)
