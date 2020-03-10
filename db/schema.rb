@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_10_201407) do
+ActiveRecord::Schema.define(version: 2020_03_10_205337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(version: 2020_03_10_201407) do
     t.string "value_props", default: [], array: true
     t.integer "completion_time"
     t.integer "price"
+  end
+
+  create_table "readings", force: :cascade do |t|
+    t.string "title"
+    t.integer "time"
+    t.string "intro_title"
+    t.text "intro_desc"
+    t.bigint "segment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["segment_id"], name: "index_readings_on_segment_id"
   end
 
   create_table "segments", force: :cascade do |t|
