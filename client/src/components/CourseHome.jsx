@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import NavBar from './NavBar';
 import Footer from './Footer';
 
@@ -7,7 +8,17 @@ class CourseHome extends React.Component {
 
   constructor(props){
       super(props);
-      this.state = { email: '', password: '', message: 'Click the button to load data!'};
+      this.state = { course: ''};
+  }
+
+  componentDidMount() {
+    axios.get('/api/course')
+      .then(res => {
+        this.setState({ course: res.data[0]});
+        console.log(this.state.course)
+      })
+
+
   }
 
   render() {
@@ -88,14 +99,12 @@ class CourseHome extends React.Component {
             {/* Side Bar for Course Description */}
             <div className="col-6">
               <div className="course-container">
-                <h3>Title of Course</h3>
-                <p>Estimated time for completion.</p>
+                <h3>{this.state.course.name}</h3>
+                <p>Completion Time: {this.state.course.completion_time}</p>
                 {/* Progress bar component. */}
                 <h4>Course Description</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat</p>
-                <h5>Value Prop</h5>
-                <h5>Value Prop</h5>
-                <h5>Value Prop</h5>
+                <p>{this.state.course.description}</p>
+                <h5>{this.state.course.value_props}</h5>
 
               </div>
             </div>

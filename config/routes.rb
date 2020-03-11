@@ -7,7 +7,8 @@ Rails.application.routes.draw do
     
     get '/data', to: 'login#index'
     
-    resources :login
+    resources :login, :course
+
 
   end
 

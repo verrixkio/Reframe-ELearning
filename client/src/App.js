@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import ModuleTemplate from './components/ModuleTemplate';
 import CourseHome from './components/CourseHome';
 import LoginForm from './components/LoginForm';
@@ -17,20 +16,6 @@ class Index extends Component {
       message: 'Click the button to load data!'
     }
   }
-
-  fetchData = () => {
-    axios.get('/api/data') // You can simply make your requests to "/api/whatever you want"
-    .then((response) => {
-      // handle success
-      console.log(response.data[0].name) // The entire response from the Rails API
-
-      console.log(response.data[0].name) // Just the message
-      this.setState({
-        message: response.data[0].name
-      });
-    }) 
-  }
-
 
   render() {
     return (
