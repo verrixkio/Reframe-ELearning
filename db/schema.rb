@@ -10,10 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_10_205337) do
+ActiveRecord::Schema.define(version: 2020_03_11_023639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.string "name"
+    t.integer "time"
+    t.string "intro_title"
+    t.text "intro_desc"
+    t.string "objective"
+    t.text "objective_desc"
+    t.string "instruction_title"
+    t.text "instruction_desc"
+    t.bigint "segment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["segment_id"], name: "index_activities_on_segment_id"
+  end
+
+  create_table "concepts", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.bigint "reading_id"
+    t.bigint "skill_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reading_id"], name: "index_concepts_on_reading_id"
+    t.index ["skill_id"], name: "index_concepts_on_skill_id"
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
@@ -40,6 +66,18 @@ ActiveRecord::Schema.define(version: 2020_03_10_205337) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_segments_on_course_id"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.bigint "segment_id"
+    t.bigint "reading_id"
+    t.bigint "activity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_skills_on_activity_id"
+    t.index ["reading_id"], name: "index_skills_on_reading_id"
+    t.index ["segment_id"], name: "index_skills_on_segment_id"
   end
 
   create_table "users", force: :cascade do |t|
