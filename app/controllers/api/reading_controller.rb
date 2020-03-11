@@ -1,10 +1,8 @@
-class Api::CourseController < ApplicationController
-  # This controller will be building the reading and activity list.
-
+class Api::ReadingController < ApplicationController
   def index
-    @Course = Course.all
-    
-    render json: @Course
+
+    @Reading = Reading.where("segment_id = 1")
+    render json: @Reading
     
   end
 

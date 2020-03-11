@@ -1,10 +1,10 @@
-class Api::CourseController < ApplicationController
-  # This controller will be building the reading and activity list.
+class Api::ConceptController < ApplicationController
+  # This controller will be building the reading and Concept list.
 
   def index
-    @Course = Course.all
+    @Concept = Concept.all
     
-    render json: @Course
+    render json: @Concept
     
   end
 

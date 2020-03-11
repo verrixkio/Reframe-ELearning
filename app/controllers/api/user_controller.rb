@@ -1,4 +1,4 @@
-class Api::LoginController < ApplicationController
+class Api::UserController < ApplicationController
     def index
       @User = User.all
       render json: @User

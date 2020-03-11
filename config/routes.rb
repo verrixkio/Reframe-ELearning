@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     
     get '/data', to: 'login#index'
     
-    resources :login, :course
+    resources :user, :reading, :course, :segment, :activity, :skill, :concept
 
 
   end
