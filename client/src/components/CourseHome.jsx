@@ -105,7 +105,6 @@ class CourseHome extends React.Component {
                 <h4>Course Description</h4>
                 <p>{this.state.course.description}</p>
                 <h5>{this.state.course.value_props}</h5>
-
               </div>
             </div>
           </div>
