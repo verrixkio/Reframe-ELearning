@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import ModuleTemplate from './components/ModuleTemplate';
 import CourseHome from './components/CourseHome';
 import LoginForm from './components/LoginForm';
@@ -6,7 +7,13 @@ import RegisterForm from './components/RegisterForm';
 
 import './css/application.css';
 
-import { BrowserRouter as Router, Route} from "react-router-dom";
+import { 
+  BrowserRouter as Router, 
+  Route,
+  Switch,
+  Link,
+  useParams
+} from "react-router-dom";
 
 
 class Index extends Component {
@@ -39,8 +46,10 @@ function Register () {
 }
 
 function Module () {
+  let { id } = useParams();
+  console.log(id, "here is our url_id")
   return (
-    <ModuleTemplate/>
+    <ModuleTemplate url_id={id}/>
   )
 }
 
@@ -49,10 +58,13 @@ function AppRouter() {
   return (
     <Router>
       <div>
-        <Route path="/" exact component={Index} />
+        {/* Will Make a path that holds our home index/non member portal */}
+        <Route path="/course" exact component={Index} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <Route path="/course" component={Module} />
+        <Switch>
+          <Route path="/course/:id" component={Module} />
+        </Switch>
       </div>
     </Router>
   );
