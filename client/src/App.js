@@ -47,7 +47,6 @@ function Register () {
 
 function Module () {
   let { id } = useParams();
-  console.log(id, "here is our url_id")
   return (
     <ModuleTemplate url_id={id}/>
   )
