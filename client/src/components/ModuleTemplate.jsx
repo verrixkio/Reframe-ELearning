@@ -19,7 +19,7 @@ class ModuleTemplate extends React.Component {
           <div className="main-content">
             <div className="row">
               <div className="side-nav col-3 no-gutters">
-                <SideNav/>
+                <SideNav course_id={this.props.url_id}/>
               </div>
               <div className="workbar col-9 no-gutters">
             {/* 
