@@ -2,9 +2,19 @@ class Api::ActivityController < ApplicationController
   # This controller will be building the reading and activity list.
 
   def index
-    @Activity = Activity.all
-    
-    render json: @Activity
+
+    if params[:id]
+
+      number = params[:id]
+      @Activity = Activity.where("segment_id = #{number}")
+      render json: @Activity
+  
+      else
+
+        @Activity = Activity.all
+        render json: @Activity
+
+      end
     
   end
 
