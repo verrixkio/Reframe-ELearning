@@ -1,17 +1,42 @@
 import React from 'react';
+import axios from 'axios';
 import NavBar from './NavBar';
 import Footer from './Footer';
-import SideNav from './SideNav'
 import WorkMats from './WorkMats'
 
 class ModuleTemplate extends React.Component {
 
   constructor(props){
-      super(props);
-      this.state = { email: '', password: '', message: 'Click the button to load data!'};
+    super(props);
+    this.state = { readings: '', activities: ''};
+  }
+  componentDidMount() {
+
+    axios.get('/api/reading?id=' + this.props.url_id)
+      .then(res => {
+        this.setState({ readings: res.data});
+      })
+
+    axios.get('/api/activity?id=' + this.props.url_id)
+    .then(res => {
+      this.setState({ activities: res.data});
+    })
   }
 
   render() {
+
+    const readingData = Object.entries(this.state.readings).map(([key, index]) => {
+      return (
+        <h4 key={index}>{index.title}</h4>
+      )
+    })
+
+    const activityData = Object.entries(this.state.activities).map(([key, index]) => {
+      return (
+        <h4 key={index}>{index.intro_title}</h4>
+      )
+    })
+
       return (
         <div>
           <NavBar/>
@@ -19,7 +44,10 @@ class ModuleTemplate extends React.Component {
           <div className="main-content">
             <div className="row">
               <div className="side-nav col-3 no-gutters">
-                <SideNav course_id={this.props.url_id}/>
+                <h3>Reading:</h3>
+                {readingData}
+                <h3>Activities:</h3>
+                {activityData}
               </div>
               <div className="workbar col-9 no-gutters">
             {/* 
