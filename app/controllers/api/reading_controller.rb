@@ -1,8 +1,17 @@
 class Api::ReadingController < ApplicationController
   def index
 
-    @Reading = Reading.where("segment_id = 1")
+
+    if params[:id]
+    number = params[:id]
+    @Reading = Reading.where("segment_id = #{number}")
     render json: @Reading
+
+    else
+      @Reading = Reading.where("segment_id = '1'")
+      render json: @Reading
+    
+    end
     
   end
 
