@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import NavBar from './NavBar';
 import Footer from './Footer';
-import WorkMats from './WorkMats'
 
 class ModuleTemplate extends React.Component {
 
@@ -24,18 +23,37 @@ class ModuleTemplate extends React.Component {
   }
 
   render() {
-
-    const readingData = Object.entries(this.state.readings).map(([key, index]) => {
+    // SideNav Maps
+    const readingList = Object.entries(this.state.readings).map(([key, index]) => {
       return (
         <h4 key={index}>{index.title}</h4>
       )
     })
 
-    const activityData = Object.entries(this.state.activities).map(([key, index]) => {
+    const activityList = Object.entries(this.state.activities).map(([key, index]) => {
       return (
         <h4 key={index}>{index.intro_title}</h4>
       )
     })
+
+    // Work Materials Map
+
+    const readingData = Object.entries(this.state.readings).map(([key, index]) => {
+      return (
+        <div>
+        <h4 key={index.title}>{index.title}</h4>
+        <p key={index.time}>{index.time}</p>
+        <h4 key={index.intro_title}>{index.intro_title}</h4>
+        <h4 key={index.intro_desc}>{index.intro_desc}</h4>
+        </div>
+      )
+    })
+
+    // const activityData = Object.entries(this.state.activities).map(([key, index]) => {
+    //   return (
+    //     <h4 key={index}>{index.intro_title}</h4>
+    //   )
+    // })
 
       return (
         <div>
@@ -45,11 +63,13 @@ class ModuleTemplate extends React.Component {
             <div className="row">
               <div className="side-nav col-3 no-gutters">
                 <h3>Reading:</h3>
-                {readingData}
+                {readingList}
                 <h3>Activities:</h3>
-                {activityData}
+                {activityList}
               </div>
               <div className="workbar col-9 no-gutters">
+                <h3>Work</h3>
+                {readingData}
             {/* 
                 WorkMats takes in two params
                       
@@ -63,7 +83,6 @@ class ModuleTemplate extends React.Component {
                     M_Reading.jsx
                   
               */}
-              <WorkMats/>
               </div>
           </div>
           {/* Closing Main Content Div (everything but nav)*/}
