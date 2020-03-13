@@ -21,24 +21,25 @@ class SideNav extends React.Component {
     this.state = { readings: '', activities: ''};
   }
   componentDidMount() {
-    // Get appropriate values through multiple axios requests.
 
-    // Our path needs to take a param.
-
-    // We need all readings that match the module ID of 1.
-    // We need all activities that match the module ID of 1.
-
-    axios.get('/api/course')
+    axios.get('/api/reading?id=' + this.props.course_id)
       .then(res => {
-        this.setState({ course: res.data[0]});
-        console.log(this.state.course)
+        console.log(typeof(res.data), 'here is our response data')
+        this.setState({ readings: res.data});
+        console.log(this.state.readings)
       })
     }
   render () {
+    const readingData = Object.entries(this.state.readings).map(([key, index]) => {
+      return (
+        <h3 key={index}>{index.title}</h3>
+      )
+    })
     return (
         <div>
           <h3>Work</h3>
-          <h3>{this.props.course_id}</h3>
+          {readingData}
+          
         </div>
     );
   }
