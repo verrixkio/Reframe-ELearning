@@ -7,8 +7,26 @@ class ModuleTemplate extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = { readings: '', activities: ''};
+    this.state = { readings: '', activities: '', workDisplay: {}};
   }
+
+  handleClick = () => {
+    // Update our state here...
+  };
+
+
+    // here you know which component is that, so you can call parent method
+    //This is the onclick handler for when someone clicks on one of the work navbars. 
+
+    // For the sidenav, itneeds to render out each item as a button
+
+    //This button needs to call our onClick defined above
+
+    //This onlick needs to update the state of workDisplay with the relevant information being clicked.
+    
+    
+    // this.state.workDisplay.update(this.state.);
+
   componentDidMount() {
 
     axios.get('/api/reading?id=' + this.props.url_id)
