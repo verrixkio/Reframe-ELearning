@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
 import ModuleTemplate from './components/ModuleTemplate';
 import CourseHome from './components/CourseHome';
 import LoginForm from './components/LoginForm';
@@ -20,7 +20,8 @@ class Index extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      message: 'Click the button to load data!'
+      message: 'Click the button to load data!',
+      readings: ''
     }
   }
 
@@ -54,6 +55,9 @@ function Module () {
 
 
 function AppRouter() {
+ 
+
+
   return (
     <Router>
       <div>

@@ -24,7 +24,7 @@ class ModuleTemplate extends React.Component {
     // this.state.workDisplay.update(this.state.);
 
   componentDidMount() {
-
+    console.log(this.props)
     axios.get('/api/reading?id=' + this.props.url_id)
       .then(res => {
         this.setState({ readings: res.data});
@@ -51,26 +51,7 @@ class ModuleTemplate extends React.Component {
         <button onClick={() => {this.handleClick(index)}} key={index}>{index.intro_title}</button>
       )
     })
-
-    // Work Materials Map
-
-    const readingData = Object.entries(this.state.readings).map(([key, index]) => {
-      return (
-        <div>
-        <h4 key={index.title}>{index.title}</h4>
-        <p key={index.time}>{index.time}</p>
-        <h4 key={index.intro_title}>{index.intro_title}</h4>
-        <h4 key={index.intro_desc}>{index.intro_desc}</h4>
-        </div>
-      )
-    })
-
-    // const activityData = Object.entries(this.state.activities).map(([key, index]) => {
-    //   return (
-    //     <h4 key={index}>{index.intro_title}</h4>
-    //   )
-    // })
-
+    console.log(this.state.workDisplay)
       return (
         <div>
           <NavBar/>
@@ -85,20 +66,16 @@ class ModuleTemplate extends React.Component {
               </div>
               <div className="workbar col-9 no-gutters">
                 <h3>Work</h3>
-                {readingData}
-            {/* 
-                WorkMats takes in two params
-                      
-                      type of work material (Activity, Reading, or Introduction)
-                      Module_Id
-
-                It checks what type of work activity and then renders the appropriate view. Seperated into 3 different components.
-
-                    M_Introduction.jsx
-                    M_Activity.jsx
-                    M_Reading.jsx
-                  
-              */}
+                {this.state.workDisplay && !this.state.workDisplay.objective &&
+                <h2>
+                  REading shit goes here
+                </h2>
+              }
+                {this.state.workDisplay.objective &&
+                <h2>
+                  Activity Shit goes here
+                </h2>
+              }
               </div>
           </div>
           {/* Closing Main Content Div (everything but nav)*/}
@@ -106,7 +83,7 @@ class ModuleTemplate extends React.Component {
           </div>
         {/* Closing Overall Render Div */}
         </div>
-    );
+      );
   }
 }
 
