@@ -10,17 +10,13 @@ class ModuleTemplate extends React.Component {
     this.state = { readings: '', activities: '', workDisplay: {}};
   }
 
-  handleClick = () => {
+  handleClick = (displayVal) => {
     // Update our state here...
+
+    this.setState({ workDisplay: displayVal}, () => console.log(this.state.workDisplay, "this is our workdisplay"))
+
   };
 
-
-    // here you know which component is that, so you can call parent method
-    //This is the onclick handler for when someone clicks on one of the work navbars. 
-
-    // For the sidenav, itneeds to render out each item as a button
-
-    //This button needs to call our onClick defined above
 
     //This onlick needs to update the state of workDisplay with the relevant information being clicked.
     
@@ -44,13 +40,15 @@ class ModuleTemplate extends React.Component {
     // SideNav Maps
     const readingList = Object.entries(this.state.readings).map(([key, index]) => {
       return (
-        <h4 key={index}>{index.title}</h4>
+
+        <button value={this.state.readings} onClick={() => {this.handleClick(index)}} key={index}>{index.title}</button>
+        
       )
     })
 
     const activityList = Object.entries(this.state.activities).map(([key, index]) => {
       return (
-        <h4 key={index}>{index.intro_title}</h4>
+        <button onClick={() => {this.handleClick(index)}} key={index}>{index.intro_title}</button>
       )
     })
 
