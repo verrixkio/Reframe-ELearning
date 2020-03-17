@@ -1,7 +1,5 @@
 class Api::SegmentController < ApplicationController
   # This controller will be building the reading and Segment list.
-
-
   def index
     puts params
     if params[:id]

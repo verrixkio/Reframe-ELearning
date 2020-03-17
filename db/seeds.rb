@@ -21,6 +21,11 @@ Segment.create!(
   course_id: 1
 )
 
+Segment.create!(
+  name: "Module9: Getting this to work",
+  course_id: 1
+)
+
 Reading.create!(
   title: "Module:8 Commitments",
   time: 30,
@@ -54,3 +59,4 @@ Concept.create!(
   reading_id: 1,
   skill_id: 1,
 )
+

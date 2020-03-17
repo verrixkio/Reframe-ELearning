@@ -16,13 +16,11 @@ class CourseHome extends React.Component {
     axios.get('/api/course')
       .then(res => {
         this.setState({ course: res.data[0]});
-        console.log(this.state.course)
       })
 
     axios.get('/api/segment?id=1')
       .then(res => {
-        this.setState({ segments: res.data[0]}, () => {
-          console.log(this.state, "here is our state")
+        this.setState({ segments: res.data}, () => {
         })
 
       })
@@ -30,6 +28,10 @@ class CourseHome extends React.Component {
   }
 
   render() {
+
+    const segmentData = Object.entries(this.state.segments).map(([key, index]) => {
+      console.log(index, "this is our index")
+    })
       return (
         <div>
           <NavBar/>
