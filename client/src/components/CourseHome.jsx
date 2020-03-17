@@ -29,9 +29,21 @@ class CourseHome extends React.Component {
 
   render() {
 
-    const segmentData = Object.entries(this.state.segments).map(([key, index]) => {
-      console.log(index, "this is our index")
+    const segmentObjects = Object.entries(this.state.segments).map(([key, segment]) => {
+        return segment
     })
+
+    const segmentRender = Object.entries(segmentObjects).map(([key, segmentInfo]) => {
+      console.log(segmentInfo)
+      // In here we should call the specific component that handles the rendering of the component
+      // For now we will just print it out.
+      return (
+        <h2>{segmentInfo.name}</h2>
+      )
+    })
+
+
+
       return (
         <div>
           <NavBar/>
@@ -123,6 +135,7 @@ class CourseHome extends React.Component {
           <div className="pathway">
             <div className="row align-items-center justify-content-center">
               <h1>Component that renders out each module of the course.</h1>
+              {segmentRender}
               {/* Component that renders out each module of the course */}
 
             </div>
