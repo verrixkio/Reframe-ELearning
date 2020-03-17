@@ -1,10 +1,21 @@
 class Api::SegmentController < ApplicationController
   # This controller will be building the reading and Segment list.
 
+
   def index
-    @Segment = Segment.all
-    
-    render json: @Segment
+    puts params
+    if params[:id]
+
+      number = params[:id]
+      @Segment = Segment.where("course_id = #{number}")
+      render json: @Segment
+  
+      else
+
+        @Segment = Segment.all
+        render json: @Segment
+
+      end
     
   end
 

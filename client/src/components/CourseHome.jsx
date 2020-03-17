@@ -8,9 +8,10 @@ class CourseHome extends React.Component {
 
   constructor(props){
       super(props);
-      this.state = { course: ''};
+      this.state = { course: '', segments: ''};
   }
 
+  //Both these axios requests will need to take params once we have more than one course.
   componentDidMount() {
     axios.get('/api/course')
       .then(res => {
@@ -18,6 +19,13 @@ class CourseHome extends React.Component {
         console.log(this.state.course)
       })
 
+    axios.get('/api/segment?id=1')
+      .then(res => {
+        this.setState({ segments: res.data[0]}, () => {
+          console.log(this.state, "here is our state")
+        })
+
+      })
 
   }
 
