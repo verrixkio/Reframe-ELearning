@@ -134,7 +134,6 @@ class CourseHome extends React.Component {
           {/* Pathway of Course Work */}
           <div className="pathway">
             <div className="row align-items-center justify-content-center">
-              <h1>Component that renders out each module of the course.</h1>
               {segmentRender}
               {/* Component that renders out each module of the course */}
 
