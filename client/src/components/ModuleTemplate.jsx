@@ -28,6 +28,7 @@ class ModuleTemplate extends React.Component {
     axios.get('/api/reading?id=' + this.props.url_id)
       .then(res => {
         this.setState({ readings: res.data});
+        this.setState({ workDisplay: res.data});
       })
 
     axios.get('/api/activity?id=' + this.props.url_id)
@@ -67,15 +68,22 @@ class ModuleTemplate extends React.Component {
               <div className="workbar col-9 no-gutters">
                 <h3>Work</h3>
                 {this.state.workDisplay && !this.state.workDisplay.objective &&
-                <h2>
-                  REading shit goes here
-                </h2>
-              }
+                  <div>
+                    <h4 key={this.state.workDisplay.title}>{this.state.workDisplay.title}</h4>
+                    <p key={this.state.workDisplay.time}>{this.state.workDisplay.time}</p>
+                    <h4 key={this.state.workDisplay.intro_title}>{this.state.workDisplay.intro_title}</h4>
+                    <h4 key={this.state.workDisplay.intro_desc}>{this.state.workDisplay.intro_desc}</h4>
+                  </div>
+                    // In this logic we need to when we hit click add in some values
+                } 
                 {this.state.workDisplay.objective &&
-                <h2>
-                  Activity Shit goes here
-                </h2>
-              }
+                  <div>
+                    <h4 key={this.state.workDisplay.name}>{this.state.workDisplay.name}</h4>
+                    <p key={this.state.workDisplay.time}>{this.state.workDisplay.time}</p>
+                    <h4 key={this.state.workDisplay.intro_title}>{this.state.workDisplay.intro_title}</h4>
+                    <h4 key={this.state.workDisplay.intro_desc}>{this.state.workDisplay.intro_desc}</h4>
+                  </div>
+                }
               </div>
           </div>
           {/* Closing Main Content Div (everything but nav)*/}
