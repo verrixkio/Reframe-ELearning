@@ -13,7 +13,7 @@ class ModuleTemplate extends React.Component {
   handleClick = (displayVal) => {
     // Update our state here...
 
-    this.setState({ workDisplay: displayVal}, () => console.log(this.state.workDisplay, "this is our workdisplay"))
+    this.setState({ workDisplay: displayVal});
 
   };
 
@@ -24,7 +24,6 @@ class ModuleTemplate extends React.Component {
     // this.state.workDisplay.update(this.state.);
 
   componentDidMount() {
-    console.log(this.props)
     axios.get('/api/reading?id=' + this.props.url_id)
       .then(res => {
         this.setState({ readings: res.data});
@@ -52,7 +51,6 @@ class ModuleTemplate extends React.Component {
         <button onClick={() => {this.handleClick(index)}} key={index}>{index.intro_title}</button>
       )
     })
-    console.log(this.state.workDisplay)
       return (
         <div>
           <NavBar/>
