@@ -53,7 +53,7 @@ class CourseHome extends React.Component {
               <div className="col-6">
                 <div className="text-container">
                   <h3>Welcome to Reframe E-Learning. You'll be led through a series of Courses and Workshops so you can efficiently master the skills you need to achieve your goals.</h3>
-                  <button>Take a tour.</button>
+                  <button type="button" class="btn btn-primary">Take a tour.</button>
                 </div>
               </div>
               <div className="col-6">
@@ -77,8 +77,8 @@ class CourseHome extends React.Component {
                   <h3>{this.state.course.name}</h3>
                   <p>Completion Time: {this.state.course.completion_time} h</p>
                 </div>
-                <div class="progress">
-                  <div class="progress-bar"></div>
+                <div className="progress">
+                  <div className="progress-bar">20%</div>
                 </div>
                 {/* Progress bar component. */}
                 <h4>Course Description</h4>
