@@ -11,17 +11,30 @@
     padding-bottom: 40px;
   }
 }
+// Align Col-4 with the section
 .col-4 {
-  padding: 23px 0 0 0;
+  padding: 4px 0 0 0;
   margin: 0;
 }
 .col-8 {
   padding: 0;
 }
 
+// Hero Image
+.hero-section {
+  height: 540px;
+}
+
 .image-container {
   img {
     width: 100%;
+  }
+}
+
+
+.text-container {
+  button {
+    margin: 20px 0 0 0;
   }
 }
 
@@ -31,13 +44,14 @@
   min-height: 100px;
 }
 
+// Course Description Container
 .course-container {
   border: solid 1px black;
   height: 100%;
 
   .heading {
     display: flex;
-    padding: 20px 20px;
+    padding: 20px 10px;
     align-items: center;
     justify-content: space-between;
   }
@@ -47,7 +61,21 @@
   .progress-bar {
     width: 20%;
   }
+  .description {
+    h4 {
+      text-align: left;
+      padding: 20px 0 20px 10px;
+    }
+    p {
+      text-align: left;
+      padding: 0px 0 20px 10px;
+    }
 
+    h5 {
+      text-align: left;
+      padding: 0 0 0 10px;
+    }
+  }
 }
 
 .framework {

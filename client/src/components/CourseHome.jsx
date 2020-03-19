@@ -49,7 +49,7 @@ class CourseHome extends React.Component {
           <div className="main-content">
             
             {/* Main Header */}
-            <div className="row align-items-center justify-content-center">
+            <div className="row align-items-center justify-content-center hero-section">
               <div className="col-6">
                 <div className="text-container">
                   <h3>Welcome to Reframe E-Learning. You'll be led through a series of Courses and Workshops so you can efficiently master the skills you need to achieve your goals.</h3>
@@ -67,7 +67,6 @@ class CourseHome extends React.Component {
           <div className="row">
             {/* Linear Framework Matrix Design */}
             <div className="col-8 nopadding">
-              <h4>Basic Framework Visualization</h4>
                 <img class="framework" src={require("../media/courseHome/basic_framework.jpg")} alt="basicframework"></img>
             </div>
             {/* Side Bar for Course Description */}
@@ -81,9 +80,11 @@ class CourseHome extends React.Component {
                   <div className="progress-bar">20%</div>
                 </div>
                 {/* Progress bar component. */}
-                <h4>Course Description</h4>
-                <p>{this.state.course.description}</p>
-                <h5>{this.state.course.value_props}</h5>
+                <div className="description">
+                  <h4>Course Description</h4>
+                  <p>{this.state.course.description}</p>
+                  <h5>{this.state.course.value_props}</h5>
+                </div>
               </div>
             </div>
           </div>
