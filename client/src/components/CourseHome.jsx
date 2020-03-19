@@ -42,8 +42,6 @@ class CourseHome extends React.Component {
       )
     })
 
-
-
       return (
         <div>
           <NavBar/>
@@ -66,63 +64,22 @@ class CourseHome extends React.Component {
             </div>
 
           {/*FrameWork and Course Infrastructure.*/}
-          <div className="row align-items-center justify-content-center">
+          <div className="row">
             {/* Linear Framework Matrix Design */}
-            <div className="col-6">
-              <div className="grid">
-
-                <div className="row">
-                  <div className="border">
-
-                  </div>
-                  <div className="border">
-
-                  </div>
-                  <div className="border">
-
-                  </div>
-                  <div className="border">
-
-                  </div>
-                </div>
-
-                <div className="row">
-                  <div className="border">
-
-                  </div>
-                  <div className="border">
-
-                  </div>
-                  <div className="border">
-
-                  </div>
-                  <div className="border">
-
-                  </div>
-                </div>
-
-                <div className="row">
-                  <div className="border">
-
-                  </div>
-                  <div className="border">
-                    
-                  </div>
-                  <div className="border">
-
-                  </div>
-                  <div className="border">
-
-                  </div>
-                </div>
-              </div>
-
+            <div className="col-8 nopadding">
+              <h4>Basic Framework Visualization</h4>
+                <img class="framework" src={require("../media/courseHome/basic_framework.jpg")} alt="basicframework"></img>
             </div>
             {/* Side Bar for Course Description */}
-            <div className="col-6">
+            <div className="col-4 nopadding">
               <div className="course-container">
-                <h3>{this.state.course.name}</h3>
-                <p>Completion Time: {this.state.course.completion_time}</p>
+                <div className="heading">
+                  <h3>{this.state.course.name}</h3>
+                  <p>Completion Time: {this.state.course.completion_time} h</p>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar"></div>
+                </div>
                 {/* Progress bar component. */}
                 <h4>Course Description</h4>
                 <p>{this.state.course.description}</p>

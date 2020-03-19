@@ -13339,6 +13339,24 @@ html {
   padding-top: 85px;
 }
 
+#root {
+  margin: 0 20px;
+}
+
+.main-content .row {
+  margin: 0 0;
+  padding-bottom: 40px;
+}
+
+.col-4 {
+  padding: 23px 0 0 0;
+  margin: 0;
+}
+
+.col-8 {
+  padding: 0;
+}
+
 .image-container img {
   width: 100%;
 }
@@ -13351,6 +13369,17 @@ html {
 
 .course-container {
   border: solid 1px black;
+  height: 100%;
+}
+.course-container .heading {
+  display: flex;
+  padding: 20px 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.framework {
+  width: 100%;
 }
 
 .side-nav {
@@ -13362,6 +13391,42 @@ html {
 .workbar {
   border: solid 1px black;
   height: 300px;
+}
+
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 1rem 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+.progress {
+  display: flex;
+  height: 1rem;
+  overflow: hidden;
+  font-size: 0.75rem;
+  background-color: #e9ecef;
+  border-radius: 0.25rem;
+}
+
+.progress-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  background-color: #007bff;
+  transition: width 0.6s ease;
+}
+
+.progress-bar-striped {
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-size: 1rem 1rem;
+}
+
+.progress-bar-animated {
+  animation: progress-bar-stripes 1s linear infinite;
 }
 
 /*# sourceMappingURL=application.css.map */

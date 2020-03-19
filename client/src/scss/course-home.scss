@@ -2,6 +2,22 @@
   // Setting the main-content of coursehome to blow the navbar.
   padding-top: 85px;
 }
+#root {
+  margin: 0 20px;
+}
+.main-content {
+  .row {
+    margin: 0 0;
+    padding-bottom: 40px;
+  }
+}
+.col-4 {
+  padding: 23px 0 0 0;
+  margin: 0;
+}
+.col-8 {
+  padding: 0;
+}
 
 .image-container {
   img {
@@ -17,4 +33,17 @@
 
 .course-container {
   border: solid 1px black;
+  height: 100%;
+
+  .heading {
+    display: flex;
+    padding: 20px 20px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+}
+
+.framework {
+  width: 100%;
 }
