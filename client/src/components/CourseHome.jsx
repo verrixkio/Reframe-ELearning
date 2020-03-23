@@ -33,12 +33,14 @@ class CourseHome extends React.Component {
         return segment
     })
 
+    //Segment render handles rendering each segement at the bottom of the page and creating a link to the area. 
+    // Id's of each segement must map their appropriate content.
+    
     const segmentRender = Object.entries(segmentObjects).map(([key, segmentInfo]) => {
-      console.log(segmentInfo)
-      // In here we should call the specific component that handles the rendering of the component
-      // For now we will just print it out.
       return (
-        <h2>{segmentInfo.name}</h2>
+        <form action={"/course/" + segmentInfo.id}>
+          <button class="btn-circle btn-md" type="submit">{segmentInfo.name}</button>
+        </form>
       )
     })
 

@@ -13970,4 +13970,14 @@ input[type=button].btn-block {
   width: 100%;
 }
 
+.btn-circle.btn-md {
+  width: 50px;
+  background-color: blue;
+  height: 50px;
+  padding: 7px 10px;
+  border-radius: 25px;
+  font-size: 10px;
+  text-align: center;
+}
+
 /*# sourceMappingURL=application.css.map */
