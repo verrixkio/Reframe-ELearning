@@ -5,7 +5,7 @@ class Api::SegmentController < ApplicationController
     if params[:id]
 
       number = params[:id]
-      @Segment = Segment.where("course_id = #{number}")
+      @Segment = Segment.where("id = #{number}")
       render json: @Segment
   
       else

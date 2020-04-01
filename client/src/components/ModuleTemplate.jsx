@@ -7,21 +7,12 @@ class ModuleTemplate extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = { readings: '', activities: '', workDisplay: {}};
+    this.state = { readings: '', activities: '', segment: '', workDisplay: {}};
   }
 
   handleClick = (displayVal) => {
-    // Update our state here...
-
     this.setState({ workDisplay: displayVal});
-
   };
-
-
-    //This onlick needs to update the state of workDisplay with the relevant information being clicked.
-    
-    
-    // this.state.workDisplay.update(this.state.);
 
   componentDidMount() {
     axios.get('/api/reading?id=' + this.props.url_id)
@@ -33,6 +24,12 @@ class ModuleTemplate extends React.Component {
     axios.get('/api/activity?id=' + this.props.url_id)
     .then(res => {
       this.setState({ activities: res.data});
+    })
+
+    axios.get('/api/segment?id=' + this.props.url_id)
+    .then(res => {
+      this.setState({ segment: res.data[0]});
+      console.log(this.state.segment)
     })
   }
 
@@ -58,24 +55,31 @@ class ModuleTemplate extends React.Component {
           <div className="main-content">
             <div className="row">
               <div className="side-nav col-3 no-gutters">
-                <h3>Reading:</h3>
+
+                <span className="side-bar-title">Module: {this.props.url_id}<br></br>
+                {this.state.segment.name}</span>
+                <h4>Readings:</h4>
                 {readingList}
-                <h3>Activities:</h3>
+                <h4>Activities:</h4>
                 {activityList}
               </div>
               <div className="workbar col-9 no-gutters">
-                <h3>Work</h3>
+                
                 {this.state.workDisplay && !this.state.workDisplay.objective &&
-                  <div>
-                    <h4 key={this.state.workDisplay.title}>{this.state.workDisplay.title}</h4>
-                    <p key={this.state.workDisplay.time}>{this.state.workDisplay.time}</p>
-                    <h4 key={this.state.workDisplay.intro_title}>{this.state.workDisplay.intro_title}</h4>
+                  <div className="reading-container">
+                    <div className="title-box">
+                      <h4 key={this.state.workDisplay.title}>{this.state.workDisplay.title}</h4>
+                      <p key={this.state.workDisplay.time}>{this.state.workDisplay.time}</p>
+                      <h4 key={this.state.workDisplay.intro_title}>{this.state.workDisplay.intro_title}</h4>
+                    </div>
+
+                    
                     <h4 key={this.state.workDisplay.intro_desc}>{this.state.workDisplay.intro_desc}</h4>
                   </div>
                     // In this logic we need to when we hit click add in some values
                 } 
                 {this.state.workDisplay.objective &&
-                  <div>
+                  <div className="">
                     <h4 key={this.state.workDisplay.name}>{this.state.workDisplay.name}</h4>
                     <p key={this.state.workDisplay.time}>{this.state.workDisplay.time}</p>
                     <h4 key={this.state.workDisplay.intro_title}>{this.state.workDisplay.intro_title}</h4>

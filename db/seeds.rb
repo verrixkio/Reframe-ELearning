@@ -17,17 +17,19 @@ Course.create!(
   )
 
 Segment.create!(
-  name: "Module:8 Commitments",
+  name: "Commitments",
+  module_id: 8,
   course_id: 1
 )
 
 Segment.create!(
-  name: "Module9: Getting this to work",
+  name: "Getting this to work",
+  module_id: 9,
   course_id: 1
 )
 
 Reading.create!(
-  title: "Module:8 Commitments",
+  title: "Commitments",
   time: 30,
   intro_title: "Honouring your commitments",
   intro_desc: "The focus of this chapter is to deepen the relationship between self and others through a greater understanding of commitments. What is at stake when a commitment is made? It is much more than simply the results of what you say you will do.",
