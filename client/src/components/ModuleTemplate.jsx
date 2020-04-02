@@ -56,7 +56,7 @@ class ModuleTemplate extends React.Component {
             <div className="row">
               <div className="side-nav col-3 no-gutters">
 
-                <span className="side-bar-title">Module: {this.props.url_id}<br></br>
+                <span className="side-bar-title">Module: {this.state.segment.module_id}<br></br>
                 {this.state.segment.name}</span>
                 <h4>Readings:</h4>
                 {readingList}
@@ -68,23 +68,29 @@ class ModuleTemplate extends React.Component {
                 {this.state.workDisplay && !this.state.workDisplay.objective &&
                   <div className="reading-container">
                     <div className="title-box">
-                      <h4 key={this.state.workDisplay.title}>{this.state.workDisplay.title}</h4>
+                      <h2 key={this.state.workDisplay.title}>{this.state.workDisplay.title}</h2>
                       <p key={this.state.workDisplay.time}>{this.state.workDisplay.time}</p>
                       <h4 key={this.state.workDisplay.intro_title}>{this.state.workDisplay.intro_title}</h4>
                     </div>
-
-                    
-                    <h4 key={this.state.workDisplay.intro_desc}>{this.state.workDisplay.intro_desc}</h4>
+                    <div className="introduction-container">
+                      <h3>Introduction:</h3>
+                      <p key={this.state.workDisplay.intro_desc}>{this.state.workDisplay.intro_desc}</p>
+                    </div>
                   </div>
                     // In this logic we need to when we hit click add in some values
                 } 
                 {this.state.workDisplay.objective &&
-                  <div className="">
-                    <h4 key={this.state.workDisplay.name}>{this.state.workDisplay.name}</h4>
+                <div className="reading-container">
+                  <div className="title-box activities">
+                    <h2 key={this.state.workDisplay.name}>{this.state.workDisplay.name}</h2>
                     <p key={this.state.workDisplay.time}>{this.state.workDisplay.time}</p>
                     <h4 key={this.state.workDisplay.intro_title}>{this.state.workDisplay.intro_title}</h4>
-                    <h4 key={this.state.workDisplay.intro_desc}>{this.state.workDisplay.intro_desc}</h4>
                   </div>
+                  <div className="introduction-container">
+                    <h3>Introduction:</h3>
+                    <p key={this.state.workDisplay.intro_desc}>{this.state.workDisplay.intro_desc}</p>
+                  </div>
+                </div>
                 }
               </div>
           </div>

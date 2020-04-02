@@ -8,7 +8,13 @@ class Api::SegmentController < ApplicationController
       @Segment = Segment.where("id = #{number}")
       render json: @Segment
   
-      else
+    elsif params[:course_id]
+      
+      number = params[:course_id]
+      @Segment = Segment.where("course_id = #{number}")
+      render json: @Segment
+
+    else
 
         @Segment = Segment.all
         render json: @Segment

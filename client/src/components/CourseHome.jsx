@@ -18,7 +18,7 @@ class CourseHome extends React.Component {
         this.setState({ course: res.data[0]});
       })
 
-    axios.get('/api/segment?id=1')
+    axios.get('/api/segment?course_id=1')
       .then(res => {
         this.setState({ segments: res.data}, () => {
         })
