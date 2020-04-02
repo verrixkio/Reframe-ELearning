@@ -62,7 +62,7 @@ function AppRouter() {
     <Router>
       <div>
         {/* Will Make a path that holds our home index/non member portal */}
-        <Route path="/course" exact component={Index} />
+        <Route path="/" exact component={Index} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Switch>
