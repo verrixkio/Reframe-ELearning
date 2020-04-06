@@ -1,18 +1,42 @@
 import React from 'react';
 import axios from 'axios';
 import NavBar from './NavBar';
+import NextExercise from './NextExercise'
 import Footer from './Footer';
+
 
 class ModuleTemplate extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = { readings: '', activities: '', segment: '', workDisplay: {}};
+    this.state = { 
+      readings: '', 
+      activities: '', 
+      segment: '', 
+      workDisplay: {},
+      prevExercise: {},
+      nextExercise: {}
+    };
   }
 
   handleClick = (displayVal) => {
     this.setState({ workDisplay: displayVal});
   };
+
+  setNextClick = (currWorkDisplay) => {
+    //Array value of current Reading.
+    let currValue = currWorkDisplay.id
+    //This should simply set workdisplay to the previous value.
+    //Access the next reading.
+    console.log(this.state.readings[currValue], "here is our next reading")
+    this.setState({ workDisplay: this.state.readings[currValue]});
+    console.log(currValue, "this is our current array accessor.")
+  }
+
+  setPrevClick = (currWorkDisplay) => {
+    console.log(currWorkDisplay, "this is our prev button")
+  }
+
 
   componentDidMount() {
     axios.get('/api/reading?id=' + this.props.url_id)
@@ -37,17 +61,30 @@ class ModuleTemplate extends React.Component {
     // SideNav Maps
     const readingList = Object.entries(this.state.readings).map(([key, index]) => {
       return (
-
-        <button value={this.state.readings} onClick={() => {this.handleClick(index)}} key={index}>{index.title}</button>
+        <button value={this.state.readings[index]} onClick={() => {this.handleClick(index)}} key={index + key}>{index.title}</button>
         
       )
     })
 
     const activityList = Object.entries(this.state.activities).map(([key, index]) => {
       return (
-        <button onClick={() => {this.handleClick(index)}} key={index}>{index.intro_title}</button>
+        <button onClick={() => {this.handleClick(index)}} key={index.name}>{index.intro_title}</button>
       )
     })
+
+    //Next/Prev Execises Map
+      //So this one instead of linking to the specific page it needs to link to the next page.
+
+        
+
+
+    // const activityList = Object.entries(this.state.activities).map(([key, index]) => {
+    //   return (
+    //     <button onClick={() => {this.handleClick(index)}} key={index.name}>{index.intro_title}</button>
+    //   )
+    // })
+
+
       return (
         <div>
           <NavBar/>
@@ -76,6 +113,8 @@ class ModuleTemplate extends React.Component {
                       <h3>Introduction:</h3>
                       <p key={this.state.workDisplay.intro_desc}>{this.state.workDisplay.intro_desc}</p>
                     </div>
+                    <button onClick={() => {this.setNextClick(this.state.workDisplay)}}>Next</button>
+                    <button onClick={() => {this.setPrevClick(this.state.workDisplay)}}>Prev</button>
                   </div>
                     // In this logic we need to when we hit click add in some values
                 } 
@@ -93,6 +132,7 @@ class ModuleTemplate extends React.Component {
                 </div>
                 }
               </div>
+              {/* Component for Rendering the next button links at bottom of page */}
           </div>
           {/* Closing Main Content Div (everything but nav)*/}
             <Footer/>

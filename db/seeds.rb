@@ -36,6 +36,14 @@ Reading.create!(
   segment_id: 1
 )
 
+Reading.create!(
+  title: "Expectations",
+  time: 30,
+  intro_title: "Expecting the world",
+  intro_desc: "The focus of this chapter is to deepen the relationship between self and others through a greater understanding of commitments. What is at stake when a commitment is made? It is much more than simply the results of what you say you will do.",
+  segment_id: 1
+)
+
 Activity.create!(
   name: "Activity 1",
   time: 30,
