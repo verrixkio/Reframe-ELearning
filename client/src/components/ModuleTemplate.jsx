@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import NavBar from './NavBar';
-import NextExercise from './NextExercise'
 import Footer from './Footer';
 
 
@@ -13,9 +12,7 @@ class ModuleTemplate extends React.Component {
       readings: '', 
       activities: '', 
       segment: '', 
-      workDisplay: {},
-      prevExercise: {},
-      nextExercise: {}
+      workDisplay: {}
     };
   }
 
@@ -34,7 +31,13 @@ class ModuleTemplate extends React.Component {
   }
 
   setPrevClick = (currWorkDisplay) => {
-    console.log(currWorkDisplay, "this is our prev button")
+        //Array value of current Reading.
+        let currValue = currWorkDisplay.id - 2
+        //This should simply set workdisplay to the previous value.
+        //Access the next reading.
+        console.log(this.state.readings[currValue], "here is our next reading")
+        this.setState({ workDisplay: this.state.readings[currValue]});
+        console.log(currValue, "this is our current array accessor.")
   }
 
 
