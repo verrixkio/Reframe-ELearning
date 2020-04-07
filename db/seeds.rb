@@ -44,6 +44,14 @@ Reading.create!(
   segment_id: 1
 )
 
+Reading.create!(
+  title: "Previously?",
+  time: 1333337,
+  intro_title: "You guys better work you buttons",
+  intro_desc: "The focus of this chapter is to deepen the relationship between self and others through a greater understanding of commitments. What is at stake when a commitment is made? It is much more than simply the results of what you say you will do.",
+  segment_id: 1
+)
+
 Activity.create!(
   name: "Activity 1",
   time: 30,
@@ -59,6 +67,17 @@ Activity.create!(
   name: "Activity 2",
   time: 60,
   intro_title: "title to activity 2",
+  intro_desc: "description of the intro",
+  objective: "This is the objective",
+  objective_desc: "This is the descriiption",
+  instruction_title: "These are the intructions title.",
+  instruction_desc: "1. do this, 2. do this",
+  segment_id: 1,
+)
+Activity.create!(
+  name: "Activity 3",
+  time: 1337,
+  intro_title: "title to activity 3",
   intro_desc: "description of the intro",
   objective: "This is the objective",
   objective_desc: "This is the descriiption",

@@ -138,8 +138,8 @@ class ModuleTemplate extends React.Component {
                       <h3>Introduction:</h3>
                       <p key={this.state.workDisplay.intro_desc}>{this.state.workDisplay.intro_desc}</p>
                     </div>
-                    <button onClick={() => {this.setNextClick(this.state.workDisplay)}}>Next</button>
                     <button onClick={() => {this.setPrevClick(this.state.workDisplay)}}>Prev</button>
+                    <button onClick={() => {this.setNextClick(this.state.workDisplay)}}>Next</button>
                   </div>
                     // In this logic we need to when we hit click add in some values
                 } 
@@ -154,8 +154,8 @@ class ModuleTemplate extends React.Component {
                     <h3>Introduction:</h3>
                     <p key={this.state.workDisplay.intro_desc}>{this.state.workDisplay.intro_desc}</p>
                   </div>
-                  <button onClick={() => {this.setNextClick(this.state.workDisplay)}}>Next</button>
                   <button onClick={() => {this.setPrevClick(this.state.workDisplay)}}>Prev</button>
+                  <button onClick={() => {this.setNextClick(this.state.workDisplay)}}>Next</button>
                 </div>
                 }
               </div>
