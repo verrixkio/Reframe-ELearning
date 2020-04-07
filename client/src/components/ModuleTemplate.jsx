@@ -24,35 +24,55 @@ class ModuleTemplate extends React.Component {
     this.setState({ workDisplay: displayVal});
   };
 
+  //The "next" button on the main page to go to the next reading/activity/module.
   setNextClick = (currWorkDisplay) => {
 
     //The workdisplay id can reference our readings array at the proper index for the next reading
     let currValue = currWorkDisplay.id
 
-        //If there is another activity in the readings array, and our current display is not an activity.
-        if (this.state.readings[currValue] && !this.state.workDisplay.name) {
-          this.setState({ workDisplay: this.state.readings[currValue]});
-        
-        //If the current display is an activity and there is another activity following.
-        } else if (this.state.workDisplay.name && this.state.activities[currValue] ) {
-          this.setState({ workDisplay: this.state.activities[currValue]});
-          console.log("testing")
-        
-        //If the current display is an activity and there is another activity following. Needs both because currValue can potentially get set to two above and fail the evaluation.
-        } else if (this.state.workDisplay.name && !this.state.activities[currValue] ) {
-          console.log("hide that shit")
+    //If there is another activity in the readings array, and our current display is not an activity.
+    if (this.state.readings[currValue] && !this.state.workDisplay.name) {
+      this.setState({ workDisplay: this.state.readings[currValue]});
+    
+    //If the current display is an activity and there is another activity following.
+    } else if (this.state.workDisplay.name && this.state.activities[currValue] ) {
+      this.setState({ workDisplay: this.state.activities[currValue]});
+    
+    //If the current display is an activity and there is another activity following. Needs both because currValue can potentially get set to two above and fail the evaluation.
+    } else if (this.state.workDisplay.name && !this.state.activities[currValue] ) {
+      console.log("button should go to next module.")
 
-        // We ended our readings list so start the activties.
-        } else {
-          this.setState({ workDisplay: this.state.activities[0]});
-          console.log('here')
-        }
+    // We ended our readings list so start the activties.
+    } else {
+      this.setState({ workDisplay: this.state.activities[0]});
+    }
   }
-
+  //The "previous" button on the main page to go back a reading/activity/module.
   setPrevClick = (currWorkDisplay) => {
-    //The workdisplay id can reference our readings array at the proper index if we minus 2 from it.
+
+    //Get the array index associated with previous exercise or reading.
     let currValue = currWorkDisplay.id - 2
-    this.setState({ workDisplay: this.state.readings[currValue]});
+
+    //Get the max reading length for where to begin our reading previous button.
+    let highestreading = this.state.readings.length - 1
+
+    //Prevent a user from going back where a reading doesnt exist. As well as redirect them to the previous learning module.
+    if (currValue === -1 && this.state.workDisplay.title) {
+      console.log("hol up going back?")
+    
+    //If our current display is an activity and not the end of the activities array.
+    } else if (this.state.workDisplay.name && currValue >= 0) {
+      this.setState({ workDisplay: this.state.activities[currValue]});
+
+    //If its the end of the activity array start at the top of the reading array.
+    } else if (currValue === -1 && this.state.workDisplay.name) {
+      this.setState({ workDisplay: this.state.readings[highestreading]});
+    
+    //Otherwise just go back to a previous reading.
+    } else {
+      this.setState({ workDisplay: this.state.readings[currValue]});
+    }
+
   }
 
 
@@ -89,19 +109,6 @@ class ModuleTemplate extends React.Component {
         <button onClick={() => {this.handleClick(index)}} key={index.name}>{index.intro_title}</button>
       )
     })
-
-    //Next/Prev Execises Map
-      //So this one instead of linking to the specific page it needs to link to the next page.
-
-        
-
-
-    // const activityList = Object.entries(this.state.activities).map(([key, index]) => {
-    //   return (
-    //     <button onClick={() => {this.handleClick(index)}} key={index.name}>{index.intro_title}</button>
-    //   )
-    // })
-
 
       return (
         <div>
