@@ -3,6 +3,10 @@ import axios from 'axios';
 import NavBar from './NavBar';
 import Footer from './Footer';
 
+// ******
+// Important note: A Reading has a title and an Activity has a name. This controls conditional display logic.
+// ******
+
 
 class ModuleTemplate extends React.Component {
 
@@ -21,23 +25,34 @@ class ModuleTemplate extends React.Component {
   };
 
   setNextClick = (currWorkDisplay) => {
-    //Array value of current Reading.
+
+    //The workdisplay id can reference our readings array at the proper index for the next reading
     let currValue = currWorkDisplay.id
-    //This should simply set workdisplay to the previous value.
-    //Access the next reading.
-    console.log(this.state.readings[currValue], "here is our next reading")
-    this.setState({ workDisplay: this.state.readings[currValue]});
-    console.log(currValue, "this is our current array accessor.")
+
+        //If there is another activity in the readings array, and our current display is not an activity.
+        if (this.state.readings[currValue] && !this.state.workDisplay.name) {
+          this.setState({ workDisplay: this.state.readings[currValue]});
+        
+        //If the current display is an activity and there is another activity following.
+        } else if (this.state.workDisplay.name && this.state.activities[currValue] ) {
+          this.setState({ workDisplay: this.state.activities[currValue]});
+          console.log("testing")
+        
+        //If the current display is an activity and there is another activity following. Needs both because currValue can potentially get set to two above and fail the evaluation.
+        } else if (this.state.workDisplay.name && !this.state.activities[currValue] ) {
+          console.log("hide that shit")
+
+        // We ended our readings list so start the activties.
+        } else {
+          this.setState({ workDisplay: this.state.activities[0]});
+          console.log('here')
+        }
   }
 
   setPrevClick = (currWorkDisplay) => {
-        //Array value of current Reading.
-        let currValue = currWorkDisplay.id - 2
-        //This should simply set workdisplay to the previous value.
-        //Access the next reading.
-        console.log(this.state.readings[currValue], "here is our next reading")
-        this.setState({ workDisplay: this.state.readings[currValue]});
-        console.log(currValue, "this is our current array accessor.")
+    //The workdisplay id can reference our readings array at the proper index if we minus 2 from it.
+    let currValue = currWorkDisplay.id - 2
+    this.setState({ workDisplay: this.state.readings[currValue]});
   }
 
 
@@ -105,7 +120,7 @@ class ModuleTemplate extends React.Component {
               </div>
               <div className="workbar col-9 no-gutters">
                 
-                {this.state.workDisplay && !this.state.workDisplay.objective &&
+                {this.state.workDisplay && !this.state.workDisplay.name &&
                   <div className="reading-container">
                     <div className="title-box">
                       <h2 key={this.state.workDisplay.title}>{this.state.workDisplay.title}</h2>
@@ -121,7 +136,7 @@ class ModuleTemplate extends React.Component {
                   </div>
                     // In this logic we need to when we hit click add in some values
                 } 
-                {this.state.workDisplay.objective &&
+                {this.state.workDisplay.name &&
                 <div className="reading-container">
                   <div className="title-box activities">
                     <h2 key={this.state.workDisplay.name}>{this.state.workDisplay.name}</h2>
@@ -132,6 +147,8 @@ class ModuleTemplate extends React.Component {
                     <h3>Introduction:</h3>
                     <p key={this.state.workDisplay.intro_desc}>{this.state.workDisplay.intro_desc}</p>
                   </div>
+                  <button onClick={() => {this.setNextClick(this.state.workDisplay)}}>Next</button>
+                  <button onClick={() => {this.setPrevClick(this.state.workDisplay)}}>Prev</button>
                 </div>
                 }
               </div>

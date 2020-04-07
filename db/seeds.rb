@@ -55,6 +55,17 @@ Activity.create!(
   instruction_desc: "1. do this, 2. do this",
   segment_id: 1,
 )
+Activity.create!(
+  name: "Activity 2",
+  time: 60,
+  intro_title: "title to activity 2",
+  intro_desc: "description of the intro",
+  objective: "This is the objective",
+  objective_desc: "This is the descriiption",
+  instruction_title: "These are the intructions title.",
+  instruction_desc: "1. do this, 2. do this",
+  segment_id: 1,
+)
 
 Skill.create!(
   name: "Creating & Managing commitments",
