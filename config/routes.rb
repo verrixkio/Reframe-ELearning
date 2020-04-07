@@ -16,4 +16,8 @@ Rails.application.routes.draw do
     !request.xhr? && request.format.html?
   end
 
+  get '/course/1?', to: "/", constraints: ->(request) do
+  !request.xhr? && request.format.html?
+end
+
 end
