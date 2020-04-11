@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import NavBar from './NavBar';
+import MarkComplete from './MarkComplete';
 import Footer from './Footer';
 
 // ******
@@ -47,6 +48,7 @@ class ModuleTemplate extends React.Component {
       this.setState({ workDisplay: this.state.activities[0]});
     }
   }
+
   //The "previous" button on the main page to go back a reading/activity/module.
   setPrevClick = (currWorkDisplay) => {
 
@@ -72,7 +74,6 @@ class ModuleTemplate extends React.Component {
     } else {
       this.setState({ workDisplay: this.state.readings[currValue]});
     }
-
   }
 
 // Fetching Data
@@ -126,10 +127,11 @@ class ModuleTemplate extends React.Component {
                 <h4>Activities:</h4>
                 {activityList}
               </div>
+
               <div className="workbar col-9 no-gutters">
-                
-                {this.state.workDisplay && !this.state.workDisplay.name &&
-                  <div className="reading-container">
+                <div className="reading-container">
+                  {this.state.workDisplay && !this.state.workDisplay.name &&
+                  <div className="display-info">
                     <div className="title-box">
                       <h2 key={this.state.workDisplay.title}>{this.state.workDisplay.title}</h2>
                       <p key={this.state.workDisplay.time}>{this.state.workDisplay.time}</p>
@@ -139,28 +141,30 @@ class ModuleTemplate extends React.Component {
                       <h3>Introduction:</h3>
                       <p key={this.state.workDisplay.intro_desc}>{this.state.workDisplay.intro_desc}</p>
                     </div>
-                    <button onClick={() => {this.setPrevClick(this.state.workDisplay)}}>Prev</button>
-                    <button onClick={() => {this.setNextClick(this.state.workDisplay)}}>Next</button>
                   </div>
-                    // In this logic we need to when we hit click add in some values
-                } 
+                }
+
                 {this.state.workDisplay.name &&
-                <div className="reading-container">
-                  <div className="title-box activities">
-                    <h2 key={this.state.workDisplay.name}>{this.state.workDisplay.name}</h2>
-                    <p key={this.state.workDisplay.time}>{this.state.workDisplay.time}</p>
-                    <h4 key={this.state.workDisplay.intro_title}>{this.state.workDisplay.intro_title}</h4>
+                  <div className="display-info">
+                    <div className="title-box activities">
+                      <h2 key={this.state.workDisplay.name}>{this.state.workDisplay.name}</h2>
+                      <p key={this.state.workDisplay.time}>{this.state.workDisplay.time}</p>
+                      <h4 key={this.state.workDisplay.intro_title}>{this.state.workDisplay.intro_title}</h4>
+                    </div>
+                    <div className="introduction-container">
+                      <h3>Introduction:</h3>
+                      <p key={this.state.workDisplay.intro_desc}>{this.state.workDisplay.intro_desc}</p>
+                    </div>
                   </div>
-                  <div className="introduction-container">
-                    <h3>Introduction:</h3>
-                    <p key={this.state.workDisplay.intro_desc}>{this.state.workDisplay.intro_desc}</p>
-                  </div>
+                  }
                   <button onClick={() => {this.setPrevClick(this.state.workDisplay)}}>Prev</button>
+                  <MarkComplete currentExercise={this.state.workDisplay}/>
                   <button onClick={() => {this.setNextClick(this.state.workDisplay)}}>Next</button>
                 </div>
-                }
               </div>
               {/* Component for Rendering the next button links at bottom of page */}
+
+
           </div>
           {/* Closing Main Content Div (everything but nav)*/}
             <Footer/>
