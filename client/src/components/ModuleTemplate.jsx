@@ -75,7 +75,7 @@ class ModuleTemplate extends React.Component {
 
   }
 
-
+// Fetching Data
   componentDidMount() {
     axios.get('/api/reading?id=' + this.props.url_id)
       .then(res => {
@@ -96,6 +96,7 @@ class ModuleTemplate extends React.Component {
   }
 
   render() {
+
     // SideNav Maps
     const readingList = Object.entries(this.state.readings).map(([key, index]) => {
       return (

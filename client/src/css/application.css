@@ -13420,10 +13420,12 @@ html {
 .side-nav button {
   margin-left: 10px;
   font-size: 0.9rem;
-  text-decoration: underline;
+  text-decoration: none;
+  display: block;
+  line-height: 20px;
 }
 .side-nav button:hover {
-  text-decoration: none;
+  text-decoration: underline;
   color: grey;
 }
 
