@@ -100,3 +100,12 @@ Concept.create!(
   skill_id: 1,
 )
 
+ReadingCompletion.create!(
+  segment_id: 1,
+  reading_id: 1
+)
+
+ActivityCompletion.create!(
+  segment_id: 1,
+  activity_id: 1
+)

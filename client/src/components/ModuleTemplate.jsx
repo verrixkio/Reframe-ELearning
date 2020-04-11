@@ -158,7 +158,7 @@ class ModuleTemplate extends React.Component {
                   </div>
                   }
                   <button onClick={() => {this.setPrevClick(this.state.workDisplay)}}>Prev</button>
-                  <MarkComplete currentExercise={this.state.workDisplay}/>
+                  <MarkComplete currentExercise={this.state.workDisplay} user={1}/>
                   <button onClick={() => {this.setNextClick(this.state.workDisplay)}}>Next</button>
                 </div>
               </div>

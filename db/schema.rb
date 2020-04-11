@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_01_183407) do
+ActiveRecord::Schema.define(version: 2020_04_11_195729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 2020_04_01_183407) do
     t.index ["segment_id"], name: "index_activities_on_segment_id"
   end
 
+  create_table "activity_completions", force: :cascade do |t|
+    t.bigint "segment_id"
+    t.bigint "activity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_activity_completions_on_activity_id"
+    t.index ["segment_id"], name: "index_activity_completions_on_segment_id"
+  end
+
   create_table "concepts", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -47,6 +56,15 @@ ActiveRecord::Schema.define(version: 2020_04_01_183407) do
     t.string "value_props", default: [], array: true
     t.integer "completion_time"
     t.integer "price"
+  end
+
+  create_table "reading_completions", force: :cascade do |t|
+    t.bigint "segment_id"
+    t.bigint "reading_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reading_id"], name: "index_reading_completions_on_reading_id"
+    t.index ["segment_id"], name: "index_reading_completions_on_segment_id"
   end
 
   create_table "readings", force: :cascade do |t|

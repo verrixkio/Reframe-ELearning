@@ -7,6 +7,14 @@ function MarkComplete(props) {
   
   const handleClick = () => {
     console.log("this is getting clicked", props)
+    //First check if this is an exercise reading
+
+    if (props.currentExercise.title) {
+      //Make a post request to database.
+    }
+    else if (props.currentExercise.name) {
+      console.log("this is an activity")
+    }
   };
 
   return (
