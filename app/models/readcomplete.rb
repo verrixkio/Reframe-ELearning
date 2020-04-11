@@ -1,0 +1,2 @@
+class Readcomplete < ApplicationRecord
+end

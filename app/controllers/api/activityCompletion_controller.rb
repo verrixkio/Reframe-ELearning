@@ -1,6 +1,6 @@
 class Api::ActivitycompletionController < ApplicationController
   def index
-    @actComplete = ActivityCompletion.all
+    @actComplete = Actcomplete.all
     
     render json: @actComplete
     
@@ -11,5 +11,5 @@ class Api::ActivitycompletionController < ApplicationController
     @activityComplete = params
     puts params
   end
-  
+
 end

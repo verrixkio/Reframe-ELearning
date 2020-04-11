@@ -1,6 +1,6 @@
 class Api::ReadingcompletionController < ApplicationController
   def index
-    @readComplete = ReadingCompletion.all
+    @readComplete = Readcomplete.all
     
     render json: @readComplete
     

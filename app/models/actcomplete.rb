@@ -1,0 +1,2 @@
+class Actcomplete < ApplicationRecord
+end

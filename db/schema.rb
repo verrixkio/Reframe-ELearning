@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_11_195729) do
+ActiveRecord::Schema.define(version: 2020_04_11_233814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "act_completes", force: :cascade do |t|
+    t.bigint "segment_id"
+    t.bigint "reading_id"
+    t.bigint "user_id"
+    t.index ["reading_id"], name: "index_act_completes_on_reading_id"
+    t.index ["segment_id"], name: "index_act_completes_on_segment_id"
+    t.index ["user_id"], name: "index_act_completes_on_user_id"
+  end
+
+  create_table "actcompletes", force: :cascade do |t|
+    t.bigint "segment_id"
+    t.bigint "activity_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_actcompletes_on_activity_id"
+    t.index ["segment_id"], name: "index_actcompletes_on_segment_id"
+    t.index ["user_id"], name: "index_actcompletes_on_user_id"
+  end
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
@@ -56,6 +76,26 @@ ActiveRecord::Schema.define(version: 2020_04_11_195729) do
     t.string "value_props", default: [], array: true
     t.integer "completion_time"
     t.integer "price"
+  end
+
+  create_table "read_completes", force: :cascade do |t|
+    t.bigint "segment_id"
+    t.bigint "reading_id"
+    t.bigint "user_id"
+    t.index ["reading_id"], name: "index_read_completes_on_reading_id"
+    t.index ["segment_id"], name: "index_read_completes_on_segment_id"
+    t.index ["user_id"], name: "index_read_completes_on_user_id"
+  end
+
+  create_table "readcompletes", force: :cascade do |t|
+    t.bigint "segment_id"
+    t.bigint "reading_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reading_id"], name: "index_readcompletes_on_reading_id"
+    t.index ["segment_id"], name: "index_readcompletes_on_segment_id"
+    t.index ["user_id"], name: "index_readcompletes_on_user_id"
   end
 
   create_table "reading_completions", force: :cascade do |t|
