@@ -13,7 +13,7 @@ function MarkComplete(props) {
     if (props.currentExercise.title) {
       //Make a post request to database.
         
-        axios.post('/api/activitycompletion', {
+        axios.post('/api/readingcompletion', {
           firstName: 'Fred',
           lastName: 'Flintstone'
         })

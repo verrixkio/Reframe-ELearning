@@ -9,6 +9,6 @@ class Api::ReadingcompletionController < ApplicationController
   def create
 
     @readingComplete = params
-    puts params "here are the params!!"
+    puts @readingComplete, "here are the params!!"
   end
 end
