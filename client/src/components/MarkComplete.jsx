@@ -1,24 +1,20 @@
 import React from 'react';
 import axios from 'axios';
 
-//All the logic for completing rating, and commenting on a specific exercise.
-//Take one parameter and thats the activity you're trying to mark completed.
+//This function creates an object in the database with a specific reading or exercise that represents completion of an exercise.
 
 function MarkComplete(props) {
   
-  const handleClick = (event) => {
-    console.log("this is getting clicked", props)
-    //First check if this is an exercise reading
-
+  const handleClick = () => {
+    console.log(props, 'here are props')
     if (props.currentExercise.title) {
-      //Make a post request to database.
-        
+
         axios.post('/api/readingcompletion', {
-          firstName: 'Fred',
-          lastName: 'Flintstone'
+          readingId: props.currentExercise.id,
+          userId: props.id,
+          segmentId: props.segmentId
         })
         .then(function (response) {
-          console.log(response);
         })
         .catch(function (error) {
           console.log(error);
@@ -27,6 +23,16 @@ function MarkComplete(props) {
 
     else if (props.currentExercise.name) {
       console.log("this is an activity")
+      axios.post('/api/activitycompletion', {
+        activityId: props.currentExercise.id,
+        userId: props.id,
+        segmentId: props.segmentId
+      })
+      .then(function (response) {
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     }
   };
 
