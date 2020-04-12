@@ -5,7 +5,7 @@ class LoginForm extends React.Component {
 
 constructor(props){
     super(props);
-    this.state = { email: '', password: '', role: ''};
+    this.state = {username: '', email: '', password: '', role: ''};
     }
     
     handleChange = ({ target }) => {
@@ -16,8 +16,9 @@ constructor(props){
     event.preventDefault();
     console.log(event)
 
-		axios.post('/api/register', {
-			email: this.state.email,
+		axios.post('/api/user/new', {
+      email: this.state.email,
+      username: this.state.username,
       password: this.state.password,
       role: this.state.role
 		  })
@@ -36,9 +37,9 @@ constructor(props){
         <div className="limiter">
 		<div className="container-login100">
 			<div className="wrap-login100">
-				<form onSubmit={this.handleSubmit} id="submission" className="login100-form validate-form">
+				<form onSubmit={this.onSubmit} id="submission" className="login100-form validate-form">
 					<span className="login100-form-title p-b-26">
-						Welcome
+						Welcome to Reframe Business Analytics
 					</span>
 					<span className="login100-form-title p-b-48">
 						<i className="zmdi zmdi-font"></i>
@@ -54,6 +55,16 @@ constructor(props){
 						<span className="focus-input100" data-placeholder="Email"></span>
 					</div>
 
+          <div className="wrap-input100 validate-input" data-validate="Enter username">
+            <input 
+                className="input100" 
+                type="text"
+                name="username"
+                value={this.state.username}
+                onChange={this.handleChange}/>
+						<span className="focus-input100" data-placeholder="Username"></span>
+					</div>
+
 					<div className="wrap-input100 validate-input" data-validate="Enter password">
 						<span className="btn-show-pass">
 							<i className="zmdi zmdi-eye"></i>
@@ -67,10 +78,8 @@ constructor(props){
 						<span className="focus-input100" data-placeholder="Password"></span>
 					</div>
 
-          <div className="wrap-input100 validate-input" data-validate="Enter password">
+          <div className="validate-input">
             <div class="dropdown">
-              <label for="role">What is your role?:</label>
-
               <select name="role" onChange={this.handleChange}>
                 <option value="">--Please choose an option--</option>
                 <option value="Exec/VP">Exec/VP</option>
@@ -101,9 +110,6 @@ constructor(props){
 							Login
 						</a>
 					</div>
-          <h3>Your username is: {this.state.email}</h3>
-          <h3>Your password is: {this.state.password}</h3>
-          <h3>Login info passed is: {this.state.message} </h3>
 			</div>
 		</div>
 	</div>

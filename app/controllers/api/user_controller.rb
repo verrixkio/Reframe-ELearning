@@ -5,12 +5,8 @@ class Api::UserController < ApplicationController
     end
 
     def create
-      puts "here's the email", params[:email]
-      puts "here's the password", params[:password]
 
-      @user = User.find_by email: params[:email]
-      puts "this is the retrieve user object", @user.name
-      
+      User.create(name: params[:username], email: params[:email], password: params[:password], role: params[:role])
 
     end
   end

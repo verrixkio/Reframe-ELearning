@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     # get '/data', to: 'tests#index'
     
     get '/data', to: 'login#index'
+
+    post '/user/new', to: 'user#create'
     
     resources :user, :reading, :course, :segment, :activity, :skill, :concept, :activitycompletion, :readingcompletion
 
