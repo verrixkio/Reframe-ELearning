@@ -11,10 +11,11 @@ function MarkComplete(props) {
 
         axios.post('/api/readingcompletion', {
           readingId: props.currentExercise.id,
-          userId: props.id,
+          userId: props.user,
           segmentId: props.segmentId
         })
         .then(function (response) {
+          window.location.reload(false);
         })
         .catch(function (error) {
           console.log(error);

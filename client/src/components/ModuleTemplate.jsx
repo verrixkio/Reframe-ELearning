@@ -153,6 +153,7 @@ class ModuleTemplate extends React.Component {
                           <h4>Completed :)</h4>
                         </div>
                       }
+
                     </div>
                     <div className="introduction-container">
                       <h3>Introduction:</h3>
@@ -175,6 +176,7 @@ class ModuleTemplate extends React.Component {
                   </div>
                   }
                   <button onClick={() => {this.setPrevClick(this.state.workDisplay)}}>Prev</button>
+                  
                   <MarkComplete currentExercise={this.state.workDisplay} user={1} segmentId={this.state.segment.id}/>
                   <button onClick={() => {this.setNextClick(this.state.workDisplay)}}>Next</button>
                 </div>

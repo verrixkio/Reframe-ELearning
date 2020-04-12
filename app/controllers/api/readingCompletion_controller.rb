@@ -1,4 +1,5 @@
 class Api::ReadingcompletionController < ApplicationController
+  
   def index
     puts params, "here params"
     if params[:segment_id]
@@ -20,5 +21,15 @@ class Api::ReadingcompletionController < ApplicationController
 
     @readingComplete = params
     puts @readingComplete, "here are the params!!"
+
+    puts @readingComplete[:segmentId]
+    # puts params.readingId
+    # puts params.userID
+
+    readComplete = Readcomplete.create(segment_id: params[:segmentId], reading_id: params[:readingId], user_id: params[:userId])
+
+    puts readComplete, "to the database please :)"
+
+
   end
 end
