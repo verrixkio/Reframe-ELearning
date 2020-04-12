@@ -6,7 +6,7 @@ import axios from 'axios';
 function MarkComplete(props) {
   
   const handleClick = () => {
-    console.log(props, 'here are props')
+
     if (props.currentExercise.title) {
 
         axios.post('/api/readingcompletion', {
@@ -22,7 +22,6 @@ function MarkComplete(props) {
       }
 
     else if (props.currentExercise.name) {
-      console.log("this is an activity")
       axios.post('/api/activitycompletion', {
         activityId: props.currentExercise.id,
         userId: props.id,

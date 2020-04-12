@@ -17,12 +17,16 @@ class ModuleTemplate extends React.Component {
       readings: '', 
       activities: '', 
       segment: '', 
-      workDisplay: {}
+      workDisplay: {},
+      completedReadings: {},
+      completedActivities: {},
     };
   }
 
   handleClick = (displayVal) => {
+
     this.setState({ workDisplay: displayVal});
+    
   };
 
   //The "next" button on the main page to go to the next reading/activity/module.
@@ -94,10 +98,16 @@ class ModuleTemplate extends React.Component {
       this.setState({ segment: res.data[0]});
       console.log(this.state.segment)
     })
+
+    //This should get all the completed activities within a specific module
+    axios.get('/api/readingcompletion?segment_id=' + this.props.url_id)
+    .then(res => {
+      this.setState({ completedReadings: res.data});
+      console.log(this.state.completedReadings, "completed Readings")
+    })
   }
 
   render() {
-
     // SideNav Maps
     const readingList = Object.entries(this.state.readings).map(([key, index]) => {
       return (
@@ -136,6 +146,13 @@ class ModuleTemplate extends React.Component {
                       <h2 key={this.state.workDisplay.title}>{this.state.workDisplay.title}</h2>
                       <p key={this.state.workDisplay.time}>{this.state.workDisplay.time}</p>
                       <h4 key={this.state.workDisplay.intro_title}>{this.state.workDisplay.intro_title}</h4>
+
+                      {/* Conditional Logic for if the reading has been completed at the current index of work display */}
+                      {this.state.completedReadings[this.state.workDisplay.id - 1] &&
+                        <div>
+                          <h4>Completed :)</h4>
+                        </div>
+                      }
                     </div>
                     <div className="introduction-container">
                       <h3>Introduction:</h3>
