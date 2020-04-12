@@ -1,17 +1,17 @@
 class Api::ReadingcompletionController < ApplicationController
   
   def index
-    puts params, "here params"
-    if params[:segment_id]
-      
-      number = params[:segment_id]
-      @completeReadings = Readcomplete.where("segment_id = #{number}")
-      render json: @completeReadings
+
+    # Return the completed reading objects based on a user_id and segment_id:
+    if params[:segment_id] && params[:user_id]
+
+      @userReadings = Readcomplete.where(["segment_id = ? and user_id = ?", params[:segment_id], params[:user_id]])
+      render json: @userReadings
     
     else
-      @readComplete = Readcomplete.all
+      # @readComplete = Readcomplete.all
       
-      render json: @readComplete
+      # render json: @readComplete
 
     end
     
@@ -19,17 +19,7 @@ class Api::ReadingcompletionController < ApplicationController
 
   def create
 
-    @readingComplete = params
-    puts @readingComplete, "here are the params!!"
-
-    puts @readingComplete[:segmentId]
-    # puts params.readingId
-    # puts params.userID
-
     readComplete = Readcomplete.create(segment_id: params[:segmentId], reading_id: params[:readingId], user_id: params[:userId])
-
-    puts readComplete, "to the database please :)"
-
 
   end
 end

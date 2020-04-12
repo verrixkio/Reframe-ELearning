@@ -86,25 +86,28 @@ class ModuleTemplate extends React.Component {
       .then(res => {
         this.setState({ readings: res.data});
         this.setState({ workDisplay: res.data});
+        
+        axios.get('/api/activity?id=' + this.props.url_id)
+        .then(res => {
+          this.setState({ activities: res.data});
+          axios.get('/api/segment?id=' + this.props.url_id)
+          .then(res => {
+            this.setState({ segment: res.data[0]});
+            axios.get('/api/readingcompletion?segment_id=' + this.props.url_id + `&&user_id=` + 1)
+            .then(res => {
+              this.setState({ completedReadings: res.data});
+              axios.get('/api/activitycompletion?segment_id=' + this.props.url_id + `&&user_id=` + 1)
+              .then(res => {
+                this.setState({ completedActivities: res.data});
+              })
+            })
+          })
+        })
       })
-
-    axios.get('/api/activity?id=' + this.props.url_id)
-    .then(res => {
-      this.setState({ activities: res.data});
-    })
-
-    axios.get('/api/segment?id=' + this.props.url_id)
-    .then(res => {
-      this.setState({ segment: res.data[0]});
-      console.log(this.state.segment)
-    })
-
-    //This should get all the completed activities within a specific module
-    axios.get('/api/readingcompletion?segment_id=' + this.props.url_id)
-    .then(res => {
-      this.setState({ completedReadings: res.data});
-      console.log(this.state.completedReadings, "completed Readings")
-    })
+    //This should get all the completed activities within a specific module and a specific user.
+    // ****
+    //Important - this will need to pull the session data of the user once it is set up
+    //****
   }
 
   render() {
@@ -176,14 +179,12 @@ class ModuleTemplate extends React.Component {
                   </div>
                   }
                   <button onClick={() => {this.setPrevClick(this.state.workDisplay)}}>Prev</button>
-                  
-                  <MarkComplete currentExercise={this.state.workDisplay} user={1} segmentId={this.state.segment.id}/>
+                  <MarkComplete currentExercise={this.state.workDisplay} user={1} segmentId={this.state.segment.id} 
+                  completedReadings={this.state.completedReadings} completedActivities={this.state.completedActivities}/>
                   <button onClick={() => {this.setNextClick(this.state.workDisplay)}}>Next</button>
                 </div>
               </div>
               {/* Component for Rendering the next button links at bottom of page */}
-
-
           </div>
           {/* Closing Main Content Div (everything but nav)*/}
             <Footer/>
